@@ -1,8 +1,12 @@
 import telebot
 import websearch
 import validating
+import config
 
-API_KEY = "1963830183:AAGRjqOb7UMe_cVjoXYpQZY8POkfrj8t_ps"
+telegram_key = config.api_key
+
+
+API_KEY = telegram_key
 bot = telebot.TeleBot(API_KEY, parse_mode=None)
 
 
