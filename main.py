@@ -5,7 +5,6 @@ import config
 
 telegram_key = config.api_key
 
-
 API_KEY = telegram_key
 bot = telebot.TeleBot(API_KEY, parse_mode=None)
 
@@ -38,7 +37,10 @@ def get_link(message):
         bot.reply_to(message, "Invalid link")
     else:
         bot.reply_to(message, "Valid link. Generating link")
-        bot.reply_to(message, websearch.create_site(message.text))
+        try:
+            bot.reply_to(message, websearch.create_site(message.text))
+        except:
+            bot.reply_to(message, "Server down, Please try again")
 
 
 bot.polling()
